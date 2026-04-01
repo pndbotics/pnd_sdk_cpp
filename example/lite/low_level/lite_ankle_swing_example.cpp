@@ -163,7 +163,7 @@ class LITEExample {
     lowcmd_publisher_.reset(new ChannelPublisher<LowCmd_>(ADAMCMD_TOPIC));
     lowcmd_publisher_->InitChannel();
     // create subscriber
-    LowState_(0, 0, IMUState_(), std::vector<MotorState_>(LITE_NUM_MOTOR), std::array<float,19>{}, 0);
+    LowState_(0, 0, IMUState_(), std::vector<MotorState_>(LITE_NUM_MOTOR), std::array<float,19>{}, BatteryData_(), 0);
     lowstate_subscriber_.reset(new ChannelSubscriber<LowState_>(ADAMSTATE_TOPIC));
     lowstate_subscriber_->InitChannel(std::bind(&LITEExample::LowStateHandler, this, std::placeholders::_1), 1);
 
